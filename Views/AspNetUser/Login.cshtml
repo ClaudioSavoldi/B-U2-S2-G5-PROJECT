@@ -1,0 +1,27 @@
+﻿@model B_U2_S2_G5_PROJECT.Models.Dto.LoginRequest
+
+@{
+    ViewBag.Title = "Login Dipendente";
+}
+
+<h2>Login Dipendente</h2>
+
+<form asp-action="LoginSave" method="post">
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Accedi</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

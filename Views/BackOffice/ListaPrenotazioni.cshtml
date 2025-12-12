@@ -1,0 +1,34 @@
+﻿@model List<PrenotazioneListItemViewModel>
+
+<h2>Lista Prenotazioni</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Camera</th>
+            <th>Data Inizio</th>
+            <th>Data Fine</th>
+            <th>Stato</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Cliente?.Nome @item.Cliente?.Cognome</td>
+                <td>@item.Camera?.Numero</td>
+                <td>@item.Prenotazione.DataInizio.ToShortDateString()</td>
+                <td>@item.Prenotazione.DataFine.ToShortDateString()</td>
+                <td>@item.Prenotazione.Stato</td>
+                <td>
+                    <a asp-action="EditPrenotazione" asp-route-id="@item.Prenotazione.Id" class="btn btn-warning btn-sm">Modifica</a>
+                    <a asp-action="DeletePrenotazione" asp-route-id="@item.Prenotazione.Id" class="btn btn-danger btn-sm">Elimina</a>
+                </td>
+            </tr>
+         
+        }
+    </tbody>
+</table>

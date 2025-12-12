@@ -1,0 +1,38 @@
+﻿@model Prenotazione
+
+<form asp-action="CreatePrenotazione" method="post" id="prenotazioneForm">
+    <div class="form-group">
+        <label asp-for="ClienteId">Cliente</label>
+        <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.Clienti"><option value="">Seleziona un cliente</option></select>
+        <span asp-validation-for="ClienteId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CameraId">Camera</label>
+        <select asp-for="CameraId" class="form-control" asp-items="ViewBag.Camere"><option value="">Seleziona una camera</option></select>
+        <span asp-validation-for="CameraId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataInizio"></label>
+        <input asp-for="DataInizio" type="date" class="form-control" />
+        <span asp-validation-for="DataInizio" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataFine"></label>
+        <input asp-for="DataFine" type="date" class="form-control" />
+        <span asp-validation-for="DataFine" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Stato"></label>
+        <select asp-for="Stato" class="form-control">
+            <option value="true">Attiva</option>
+            <option value="false">Non attiva</option>
+        </select>
+        <span asp-validation-for="Stato" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Salva Prenotazione</button>
+</form>

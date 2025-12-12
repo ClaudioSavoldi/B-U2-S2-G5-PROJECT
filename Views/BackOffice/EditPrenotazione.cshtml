@@ -1,0 +1,47 @@
+﻿@model Prenotazione
+@{
+    ViewBag.Clienti = ViewBag.Clienti as SelectList;
+    ViewBag.Camere = ViewBag.Camere as SelectList;
+}
+
+<h2>Modifica Prenotazione</h2>
+
+<form asp-action="UpdatePrenotazione" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="ClienteId">Cliente</label>
+        <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.Clienti"></select>
+        <span asp-validation-for="ClienteId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CameraId">Camera</label>
+        <select asp-for="CameraId" class="form-control" asp-items="ViewBag.Camere"></select>
+        <span asp-validation-for="CameraId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataInizio"></label>
+        <input asp-for="DataInizio" type="date" class="form-control" />
+        <span asp-validation-for="DataInizio" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataFine"></label>
+        <input asp-for="DataFine" type="date" class="form-control" />
+        <span asp-validation-for="DataFine" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Stato"></label>
+        <select asp-for="Stato" class="form-control">
+            <option value="true" selected="@Model.Stato">Attiva</option>
+            <option value="false" selected="@(Model.Stato == false)">Non attiva</option>
+        </select>
+        <span asp-validation-for="Stato" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Salva</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Annulla</a>
+</form>

@@ -1,0 +1,29 @@
+﻿@model List<Camera>
+<h2>Lista Camere</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Numero</th>
+            <th>Posti Letto</th>
+            <th>Tipologia</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cam in Model)
+        {
+            <tr>
+                <td>@cam.Numero</td>
+                <td>@cam.Tipo</td>
+                <td>@cam.Prezzo</td>
+                <td>
+                    <a asp-action="EditCamera" asp-route-id="@cam.Id" class="btn btn-warning btn-sm">Modifica</a>
+                    <a asp-action="DeleteCamera" asp-route-id="@cam.Id" class="btn btn-danger btn-sm">Elimina</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="CreateCamera" class="btn btn-primary">Aggiungi Camera</a>

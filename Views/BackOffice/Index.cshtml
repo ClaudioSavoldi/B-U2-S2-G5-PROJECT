@@ -1,0 +1,54 @@
+﻿@model B_U2_S2_G5_PROJECT.Models.Dto.BackOfficeViewModel
+
+<h1>Gestione BackOffice Hotel</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Nuovo Cliente</h3>
+        <partial name="_ClienteForm" model="Model.Cliente" />
+    </div>
+
+    <div class="col-md-4">
+        <h3>Nuova Camera</h3>
+        <partial name="_CameraForm" model="Model.Camera" />
+    </div>
+
+    <div class="col-md-4">
+        <h3>Nuova Prenotazione</h3>
+        <partial name="_PrenotazioneForm" model="Model.Prenotazione" />
+    </div>
+</div>
+
+<div class="row">
+    <ul>   
+
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="BackOffice" asp-action="ListaClienti">Clienti</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="BackOffice" asp-action="ListaCamere">Camere</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="BackOffice" asp-action="ListaPrenotazioni">Prenotazioni</a>
+        </li>
+    </ul>
+</div>
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
