@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 
+// fare primo user con
+// amministratore@admin.com
+
 namespace B_U2_S2_G5_PROJECT.Controllers
 {
 
